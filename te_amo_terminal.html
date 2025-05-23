@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>TE AMO beich</title>
+  <style>
+    body {
+      margin: 0;
+      background-color: black;
+      color: hotpink;
+      font-family: 'Courier New', monospace;
+      overflow: hidden;
+    }
+
+    .te-amo {
+      position: absolute;
+      white-space: nowrap;
+      font-size: 16px;
+      font-weight: bold;
+      opacity: 0;
+      animation: aparecer 0.5s forwards;
+    }
+
+    @keyframes aparecer {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    .mensaje {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: white;
+      font-size: 22px;
+      text-align: center;
+      font-family: Arial, sans-serif;
+      text-shadow: 0 0 10px #f0f;
+      z-index: 1000;
+    }
+  </style>
+</head>
+<body>
+  <div class="mensaje">
+    No fue un error de seguridad...<br>
+    Fue un acceso intencional;<br>
+    para que sepas que me importas 💗
+  </div>
+
+  <script>
+    const cantidad = 500;
+    let i = 0;
+
+    function crearTEAMO() {
+      if (i >= cantidad) return;
+      const span = document.createElement('span');
+      span.className = 'te-amo';
+      span.innerText = 'TE AMO MI BEICH ';
+      span.style.left = Math.random() * window.innerWidth + 'px';
+      span.style.top = Math.random() * window.innerHeight + 'px';
+      document.body.appendChild(span);
+      i++;
+
+      // Espera entre 20 y 100 ms antes de crear el siguiente (aleatorio)
+      setTimeout(crearTEAMO, Math.random() * 80 + 20);
+    }
+
+    crearTEAMO();
+  </script>
+</body>
+</html>
+
